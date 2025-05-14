@@ -349,12 +349,25 @@ body {
   letter-spacing: .04em
 }
 .header {
-  position: fixed;
+  position: absolute;
   z-index: 50;
   width: 100%;
   top: 0;
   left: 0;
   color: #fff
+}
+.header._header-scroll {
+  position: fixed;
+  -webkit-transform: translate(0,-100%);
+  transform: translate(0,-100%);
+  background-color: rgba(0,0,0,.8)
+}
+.header._header-show {
+  transition: -webkit-transform .3s ease 0s;
+  transition: transform .3s ease 0s;
+  transition: transform .3s ease 0s,-webkit-transform .3s ease 0s;
+  -webkit-transform: translate(0,0);
+  transform: translate(0,0)
 }
 .header__container {
   display: flex;
@@ -620,6 +633,9 @@ body {
   .header__container {
     min-height: 7.5625rem
   }
+  ._header-scroll .header__container {
+    min-height: 5rem
+  }
   .header__column {
     flex-basis: 18.75rem
   }
@@ -682,6 +698,9 @@ body {
     font-size: 4rem
   }
   .header__container {
+    min-height: 4.375rem
+  }
+  ._header-scroll .header__container {
     min-height: 4.375rem
   }
   .main-slider {
@@ -984,6 +1003,16 @@ body {
   @supports not (min-height:clamp(4.375rem ,3.3650990099rem + 5.0495049505vw ,7.5625rem)) {
     .header__container {
       min-height: calc(4.375rem + 3.1875*(100vw - 20rem)/ 63.125)
+    }
+  }
+  @supports (min-height:clamp(4.375rem ,4.176980198rem + 0.9900990099vw ,5rem)) {
+    ._header-scroll .header__container {
+      min-height: clamp(4.375rem ,4.176980198rem + .9900990099vw ,5rem)
+    }
+  }
+  @supports not (min-height:clamp(4.375rem ,4.176980198rem + 0.9900990099vw ,5rem)) {
+    ._header-scroll .header__container {
+      min-height: calc(4.375rem + .625*(100vw - 20rem)/ 63.125)
     }
   }
   @supports (padding-top:clamp(5.4375rem ,3.3582920792rem + 10.396039604vw ,12rem)) {
