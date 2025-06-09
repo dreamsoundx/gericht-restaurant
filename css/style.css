@@ -907,13 +907,16 @@ body {
     height: auto
   }
   .slide-main-slider {
-    grid-template-columns: 1fr
+    display: block
   }
   .slide-main-slider__content {
     max-width: none
   }
   .slide-main-slider__content:not(:last-child) {
     margin-right: 0
+  }
+  .slide-main-slider__content:not(:last-child) {
+    margin-bottom: 3.125rem
   }
   .slide-main-slider__image {
     height: auto;
