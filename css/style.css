@@ -903,23 +903,19 @@ body {
   }
   .body-main-slider {
     row-gap: 0;
-    height: auto;
-    display: block
+    height: auto
   }
   .body-main-slider__slide {
     height: auto
   }
   .slide-main-slider {
-    display: block
+    grid-template-columns: 1fr
   }
   .slide-main-slider__content {
     max-width: none
   }
   .slide-main-slider__content:not(:last-child) {
     margin-right: 0
-  }
-  .slide-main-slider__content:not(:last-child) {
-    margin-bottom: 3.125rem
   }
   .slide-main-slider__image {
     height: auto;
