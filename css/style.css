@@ -900,7 +900,8 @@ body {
   }
   .body-main-slider {
     row-gap: 0;
-    height: auto
+    height: auto;
+    display: block
   }
   .body-main-slider__slide {
     height: auto
