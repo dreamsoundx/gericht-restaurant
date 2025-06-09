@@ -895,6 +895,9 @@ body {
   [data-fullscreen] {
     min-height: 0
   }
+  .touch .main-slider[data-fullscreen] {
+    height: auto
+  }
   .main-slider__scroll {
     display: none
   }
