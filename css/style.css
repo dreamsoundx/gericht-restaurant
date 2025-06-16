@@ -594,9 +594,6 @@ body {
 .slide-main-slider__link {
   display: flex
 }
-.slide-main-slider__button {
-  align-self: flex-start
-}
 .slide-main-slider__image {
   position: relative;
   align-self: center;
@@ -923,8 +920,8 @@ body {
   .slide-main-slider__text p {
     max-width: none
   }
-  .slide-main-slider__button {
-    align-self: center
+  .slide-main-slider__link {
+    justify-content: center
   }
   .slide-main-slider__image {
     height: auto;
