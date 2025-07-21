@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20250707163559">
+	<link rel="stylesheet" href="css/style.min.css?_v=20250721172120">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -215,7 +215,6 @@
 					</button>
 				</div>
 			</section>
-
 			<section data-prlx-parent class="mainpage__about about-section">
 				<div data-prlx class="about-section__container">
 					<div class="about-section__content">
@@ -246,49 +245,48 @@
 				</div>
 			</section>
 			<section class="mainpage__reservations reservations">
-				<div class="reservations__container reservations__container_form">
-					<div class="reservations__content">
-						<div class="reservations__header block-header">
-							<div class="block-header__sub-title sub-title">
-								Reservations
+				<div data-decor class="reservations__container reservations__container_wide">
+					<div class="reservations__container reservations__container_form">
+						<div class="reservations__content">
+							<div class="reservations__header block-header">
+								<div class="block-header__sub-title sub-title">
+									Reservations
+								</div>
+								<h2 class="block-header__title title">Book A Table</h2>
 							</div>
-							<h2 class="block-header__title title">Book A Table</h2>
+							<form data-dev data-popup-message="#form-message" class="reservations__form form-reservations" action="#" method="get" enctype="multipart/form-data">
+								<div class="form-reservations__lines">
+									<div class="form-reservations__line">
+										<select name="form[]" data-class-modif="form">
+											<option value="1" selected>1 Person</option>
+											<option value="2">2 Person</option>
+											<option value="3">3 Person</option>
+											<option value="4">4 Person</option>
+										</select>
+									</div>
+									<div class="form-reservations__line">
+										<div class="form-reservations__input">
+											<input data-datepicker data-required class="input input_dark input_data" autocomplete="off" type="data" name="form[]" data-error="Fill in the field!" placeholder="12.05.2021" />
+										</div>
+									</div>
+									<div class="form-reservations__line">
+										<select data-scroll name="form[]" data-class-modif="form">
+											<option value="1" selected>11:00 AM</option>
+											<option value="2">12:00 AM</option>
+											<option value="3">1:00 PM</option>
+											<option value="4">2:00 PM</option>
+											<option value="5">3:00 PM</option>
+											<option value="6">4:00 PM</option>
+											<option value="7">5:00 PM</option>
+											<option value="8">6:00 PM</option>
+										</select>
+									</div>
+								</div>
+								<button class="form-reservations__button button" type="submit">
+									Book Now
+								</button>
+							</form>
 						</div>
-						<form class="reservations__form form-reservations" action="#">
-							<div class="form-reservations__lines">
-								<div class="form-reservations__line">
-									<select name="form[]" data-class-modif="form">
-										<option value="1" selected>1 Person</option>
-										<option value="2">2 Person</option>
-										<option value="3">3 Person</option>
-										<option value="4">4 Person</option>
-									</select>
-								</div>
-								<div class="form-reservations__line">
-									<select name="form[]" data-class-modif="form">
-										<option value="1" selected>1 Person</option>
-										<option value="2">2 Person</option>
-										<option value="3">3 Person</option>
-										<option value="4">4 Person</option>
-									</select>
-								</div>
-								<div class="form-reservations__line">
-									<select data-scroll name="form[]" data-class-modif="form">
-										<option value="1" selected>11:00 AM</option>
-										<option value="2">12:00 AM</option>
-										<option value="3">1:00 PM</option>
-										<option value="4">2:00 PM</option>
-										<option value="5">3:00 PM</option>
-										<option value="6">4:00 PM</option>
-										<option value="7">5:00 PM</option>
-										<option value="8">6:00 PM</option>
-									</select>
-								</div>
-							</div>
-							<button class="form-reservations__button button" type="submit">
-								Book Now
-							</button>
-						</form>
 					</div>
 				</div>
 			</section>
@@ -298,7 +296,17 @@
 			</div>
 		</footer>
 	</div>
-	<script src="js/app.min.js?_v=20250707163559"></script>
+	<div id="form-message" aria-hidden="true" class="popup">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<button data-close type="button" class="popup__close">
+					<span></span>
+				</button>
+				<div class="popup__text">Success!</div>
+			</div>
+		</div>
+	</div>
+	<script src="js/app.min.js?_v=20250721172120"></script>
 </body>
 
 </html>
