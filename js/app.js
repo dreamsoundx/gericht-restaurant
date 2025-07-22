@@ -6357,34 +6357,21 @@
         const da = new DynamicAdapt("max");
         da.init();
         const inputDateElements = document.querySelectorAll(".input_date");
-        const mediaQuery = window.matchMedia("(max-width: 768px)");
+        const mediaQuery = window.matchMedia("(max-width: 767.98px)");
         console.log(inputDateElements);
         function inputTypeChangeMax(mediaQuery) {
             if (inputDateElements.length) inputDateElements.forEach((inputElement => {
                 inputElement.setAttribute("type", "date");
+                inputElement.previousElementSibling.placeholder = "12.05.2025";
                 inputElement.addEventListener("focus", (function() {
-                    inputElement.previousElementSibling.style.zIndex = "3";
+                    inputElement.previousElementSibling.placeholder = "";
                     inputElement.addEventListener("blur", (function() {
-                        inputElement.previousElementSibling.style.zIndex = "auto";
+                        inputElement.previousElementSibling.placeholder = "12.05.2025";
                     }));
                 }));
             }));
         }
-        function inputTypeChangeMin(mediaQuery) {
-            inputDateElements.forEach((inputElement => {
-                inputElement.addEventListener("focus", (function() {
-                    this.type = "date";
-                    inputElement.previousElementSibling.style.zIndex = "3";
-                }));
-                inputElement.addEventListener("blur", (function() {
-                    if (this.value === "") {
-                        this.type = "text";
-                        inputElement.previousElementSibling.style.zIndex = "auto";
-                    }
-                }));
-            }));
-        }
-        if (mediaQuery.matches) inputTypeChangeMax(mediaQuery); else inputTypeChangeMin(mediaQuery);
+        if (mediaQuery.matches) inputTypeChangeMax(mediaQuery);
         window["FLS"] = true;
         isWebp();
         addTouchClass();

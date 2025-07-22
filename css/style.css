@@ -191,26 +191,22 @@ textarea {
   width: 100%;
   display: block;
   padding: 0 1.25rem;
-  border: .0625rem solid #eee;
-  caret-color: inherit
-}
-.input_dark {
+  caret-color: inherit;
   border: .0625rem solid #d9d9d9;
   min-height: 3.75rem;
   padding: 0 1rem;
   font-size: 1.5625rem
 }
-.input_dark._form-error {
+.input._form-error {
   border: .0625rem solid red
 }
-.input__date:before {
-  content: attr(123421);
-  color: gray;
-  text-align: left;
-  margin-right: 10px
+.input_mask {
+  position: absolute;
+  background: #0c0c0c
 }
-.input__date:focus:before {
-  content: none
+.input_date {
+  position: absolute;
+  z-index: 2
 }
 .input[placeholder]:not([data-placeholder-nohiden])::-webkit-input-placeholder {
   -webkit-transition: opacity .3s;
@@ -865,7 +861,7 @@ body::after {
 .body-main-slider__controll,
 .button,
 .header__logo,
-.input_dark,
+.input,
 .popup__text,
 .qs-datepicker .qs-overlay .qs-submit,
 .qs-datepicker-container,
@@ -982,15 +978,6 @@ body::after {
   background: linear-gradient(180deg,#dcca87 66%,rgba(220,202,135,.24) 100%);
   width: .0625rem;
   height: 3.8125rem
-}
-.input_mask {
-  position: absolute;
-  background: #0c0c0c
-}
-.input_date {
-  position: absolute;
-  z-index: 2;
-  opacity: 1
 }
 .header {
   position: absolute;
@@ -1799,6 +1786,9 @@ body::after {
   }
 }
 @media (max-width:47.99875em) {
+  .input_date {
+    opacity: 0
+  }
   .menu__body {
     position: fixed;
     width: 100%;
