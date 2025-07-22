@@ -6358,16 +6358,6 @@
         const da = new DynamicAdapt("max");
         da.init();
         document.addEventListener("click", (function(event) {}));
-        window.matchMedia("(max-width: 768px)");
-        document.querySelectorAll("[data-prlx]");
-        const inputDate = document.querySelector(".input_date");
-        console.log(inputDate);
-        inputDate.addEventListener("click", (function() {
-            this.type = "date";
-        }));
-        inputDate.addEventListener("blur", (function() {
-            if (this.value === "") this.type = "text";
-        }));
         window["FLS"] = true;
         isWebp();
         addTouchClass();
