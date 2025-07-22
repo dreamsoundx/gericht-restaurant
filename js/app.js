@@ -6362,9 +6362,6 @@
         document.querySelectorAll("[data-prlx]");
         const inputDate = document.querySelector(".input_date");
         console.log(inputDate);
-        inputDate.addEventListener("focus", (function() {
-            this.type = "date";
-        }));
         inputDate.addEventListener("click", (function() {
             this.type = "date";
         }));
