@@ -1665,6 +1665,10 @@
                     const value = date.toLocaleDateString();
                     input.value = value;
                 },
+                dateSelected: new Date,
+                startDate: new Date,
+                disableMobile: true,
+                disableYearOverlay: true,
                 onSelect: function(input, instance, date) {}
             });
             flsModules.datepicker = picker;
@@ -6342,8 +6346,18 @@
         const da = new DynamicAdapt("max");
         da.init();
         document.addEventListener("click", (function(event) {}));
-        window.matchMedia("(max-width: 768px)");
-        document.querySelectorAll("[data-prlx]");
+        const mediaQuery = window.matchMedia("(max-width: 768px)");
+        const prlxElements = document.querySelectorAll("[data-prlx]");
+        function handleMediaQueryChange(event) {
+            if (prlxElements.length) if (event.matches) prlxElements.forEach((prlxElement => {
+                if (prlxElement.hasAttribute("data-prlx")) {
+                    prlxElement.removeAttribute("style");
+                    prlxElement.removeAttribute("data-prlx");
+                    console.log("Data attribute removed on max-width.");
+                }
+            }));
+        }
+        handleMediaQueryChange(mediaQuery);
         window["FLS"] = true;
         isWebp();
         addTouchClass();
