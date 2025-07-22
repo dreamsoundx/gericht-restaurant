@@ -6342,6 +6342,8 @@
         const da = new DynamicAdapt("max");
         da.init();
         document.addEventListener("click", (function(event) {}));
+        window.matchMedia("(max-width: 768px)");
+        document.querySelectorAll("[data-prlx]");
         window["FLS"] = true;
         isWebp();
         addTouchClass();

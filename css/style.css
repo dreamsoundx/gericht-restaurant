@@ -1860,6 +1860,9 @@ body::after {
   .touch [data-fullscreen] {
     transition: height .2s
   }
+  [data-decor]::before {
+    display: none
+  }
   .header__container {
     -webkit-column-gap: 1.5625rem;
     -moz-column-gap: 1.5625rem;
