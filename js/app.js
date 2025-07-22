@@ -6357,11 +6357,10 @@
         const da = new DynamicAdapt("max");
         da.init();
         const inputDateElements = document.querySelectorAll(".input_date");
-        const mediaQueryMax = window.matchMedia("(max-width: 768px)");
-        const mediaQueryMin = window.matchMedia("(min-width: 768px)");
+        const mediaQuery = window.matchMedia("(max-width: 768px)");
         console.log(inputDateElements);
-        function inputTypeChangeMax(event) {
-            if (inputDateElements.length) if (event.matches) inputDateElements.forEach((inputElement => {
+        function inputTypeChangeMax(mediaQuery) {
+            if (inputDateElements.length) inputDateElements.forEach((inputElement => {
                 inputElement.setAttribute("type", "date");
                 inputElement.addEventListener("focus", (function() {
                     inputElement.previousElementSibling.style.zIndex = "3";
@@ -6371,8 +6370,7 @@
                 }));
             }));
         }
-        inputTypeChangeMax(mediaQueryMax);
-        function inputTypeChangeMin(event) {
+        function inputTypeChangeMin(mediaQuery) {
             inputDateElements.forEach((inputElement => {
                 inputElement.addEventListener("focus", (function() {
                     this.type = "date";
@@ -6386,7 +6384,7 @@
                 }));
             }));
         }
-        inputTypeChangeMin(mediaQueryMin);
+        if (mediaQuery.matches) inputTypeChangeMax(mediaQuery); else inputTypeChangeMin(mediaQuery);
         window["FLS"] = true;
         isWebp();
         addTouchClass();
