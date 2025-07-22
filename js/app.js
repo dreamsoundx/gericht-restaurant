@@ -6365,6 +6365,9 @@
         inputDate.addEventListener("focus", (function() {
             this.type = "date";
         }));
+        inputDate.addEventListener("click", (function() {
+            this.type = "date";
+        }));
         inputDate.addEventListener("blur", (function() {
             if (this.value === "") this.type = "text";
         }));
