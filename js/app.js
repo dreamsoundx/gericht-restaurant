@@ -1677,10 +1677,8 @@
                     const value = date.toLocaleDateString();
                     input.value = value;
                 },
-                dateSelected: new Date,
                 startDate: new Date,
                 disableMobile: true,
-                disableYearOverlay: true,
                 onSelect: function(input, instance, date) {}
             });
             flsModules.datepicker = picker;
