@@ -203,6 +203,15 @@ textarea {
 .input_dark._form-error {
   border: .0625rem solid red
 }
+.input__date:before {
+  content: attr(123421);
+  color: gray;
+  text-align: left;
+  margin-right: 10px
+}
+.input__date:focus:before {
+  content: none
+}
 .input[placeholder]:not([data-placeholder-nohiden])::-webkit-input-placeholder {
   -webkit-transition: opacity .3s;
   transition: opacity .3s
@@ -974,6 +983,15 @@ body::after {
   width: .0625rem;
   height: 3.8125rem
 }
+.input_mask {
+  position: absolute;
+  background: #0c0c0c
+}
+.input_date {
+  position: absolute;
+  z-index: 2;
+  opacity: 1
+}
 .header {
   position: absolute;
   z-index: 50;
@@ -1305,6 +1323,10 @@ body::after {
   -webkit-column-gap: 2rem;
   -moz-column-gap: 2rem;
   column-gap: 2rem
+}
+.form-reservations__input {
+  position: relative;
+  min-height: 3.75rem
 }
 .form-reservations__input .form__error {
   text-align: center;

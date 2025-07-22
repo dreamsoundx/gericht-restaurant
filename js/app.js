@@ -6357,14 +6357,36 @@
         const da = new DynamicAdapt("max");
         da.init();
         const inputDateElements = document.querySelectorAll(".input_date");
-        const mediaQuery = window.matchMedia("(max-width: 768px)");
+        const mediaQueryMax = window.matchMedia("(max-width: 768px)");
+        const mediaQueryMin = window.matchMedia("(min-width: 768px)");
         console.log(inputDateElements);
-        function inputTypeChange(event) {
+        function inputTypeChangeMax(event) {
             if (inputDateElements.length) if (event.matches) inputDateElements.forEach((inputElement => {
                 inputElement.setAttribute("type", "date");
+                inputElement.addEventListener("focus", (function() {
+                    inputElement.previousElementSibling.style.zIndex = "3";
+                    inputElement.addEventListener("blur", (function() {
+                        inputElement.previousElementSibling.style.zIndex = "auto";
+                    }));
+                }));
             }));
         }
-        inputTypeChange(mediaQuery);
+        inputTypeChangeMax(mediaQueryMax);
+        function inputTypeChangeMin(event) {
+            inputDateElements.forEach((inputElement => {
+                inputElement.addEventListener("focus", (function() {
+                    this.type = "date";
+                    inputElement.previousElementSibling.style.zIndex = "3";
+                }));
+                inputElement.addEventListener("blur", (function() {
+                    if (this.value === "") {
+                        this.type = "text";
+                        inputElement.previousElementSibling.style.zIndex = "auto";
+                    }
+                }));
+            }));
+        }
+        inputTypeChangeMin(mediaQueryMin);
         window["FLS"] = true;
         isWebp();
         addTouchClass();
