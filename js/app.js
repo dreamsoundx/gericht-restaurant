@@ -1656,6 +1656,18 @@
         var datepicker_min = __webpack_require__(934);
         if (document.querySelector("[data-datepicker]")) {
             const picker = datepicker_min("[data-datepicker]", {
+                onSelect: instance => {
+                    console.log(instance.dateSelected);
+                },
+                onShow: instance => {
+                    console.log("Calendar showing.");
+                },
+                onHide: instance => {
+                    console.log("Calendar hidden.");
+                },
+                onMonthChange: instance => {
+                    console.log(instance.currentMonthName);
+                },
                 customDays: [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" ],
                 customMonths: [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ],
                 overlayButton: "Submit",
@@ -6346,18 +6358,16 @@
         const da = new DynamicAdapt("max");
         da.init();
         document.addEventListener("click", (function(event) {}));
-        const mediaQuery = window.matchMedia("(max-width: 768px)");
-        const prlxElements = document.querySelectorAll("[data-prlx]");
-        function handleMediaQueryChange(event) {
-            if (prlxElements.length) if (event.matches) prlxElements.forEach((prlxElement => {
-                if (prlxElement.hasAttribute("data-prlx")) {
-                    prlxElement.removeAttribute("style");
-                    prlxElement.removeAttribute("data-prlx");
-                    console.log("Data attribute removed on max-width.");
-                }
-            }));
-        }
-        handleMediaQueryChange(mediaQuery);
+        window.matchMedia("(max-width: 768px)");
+        document.querySelectorAll("[data-prlx]");
+        const inputDate = document.querySelector(".input_date");
+        console.log(inputDate);
+        inputDate.addEventListener("focus", (function() {
+            this.type = "date";
+        }));
+        inputDate.addEventListener("blur", (function() {
+            if (this.value === "") this.type = "text";
+        }));
         window["FLS"] = true;
         isWebp();
         addTouchClass();
