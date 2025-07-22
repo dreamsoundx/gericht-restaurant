@@ -1677,6 +1677,7 @@
                     const value = date.toLocaleDateString();
                     input.value = value;
                 },
+                dateSelected: new Date,
                 startDate: new Date,
                 disableMobile: true,
                 onSelect: function(input, instance, date) {}
@@ -6355,7 +6356,15 @@
         }
         const da = new DynamicAdapt("max");
         da.init();
-        document.addEventListener("click", (function(event) {}));
+        const inputDateElements = document.querySelectorAll(".input_date");
+        const mediaQuery = window.matchMedia("(max-width: 768px)");
+        console.log(inputDateElements);
+        function inputTypeChange(event) {
+            if (inputDateElements.length) if (event.matches) inputDateElements.forEach((inputElement => {
+                inputElement.setAttribute("type", "date");
+            }));
+        }
+        inputTypeChange(mediaQuery);
         window["FLS"] = true;
         isWebp();
         addTouchClass();
