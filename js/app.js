@@ -1679,7 +1679,6 @@
                 },
                 dateSelected: new Date,
                 startDate: new Date,
-                disableMobile: true,
                 onSelect: function(input, instance, date) {}
             });
             flsModules.datepicker = picker;
