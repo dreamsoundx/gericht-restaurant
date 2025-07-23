@@ -200,14 +200,6 @@ textarea {
 .input._form-error {
   border: .0625rem solid red
 }
-.input_mask {
-  position: absolute;
-  background: #0c0c0c
-}
-.input_date {
-  position: absolute;
-  z-index: 2
-}
 .input[placeholder]:not([data-placeholder-nohiden])::-webkit-input-placeholder {
   -webkit-transition: opacity .3s;
   transition: opacity .3s
@@ -1786,9 +1778,6 @@ body::after {
   }
 }
 @media (max-width:47.99875em) {
-  .input_date {
-    opacity: 0
-  }
   .menu__body {
     position: fixed;
     width: 100%;

@@ -6356,22 +6356,6 @@
         }
         const da = new DynamicAdapt("max");
         da.init();
-        const inputDateElements = document.querySelectorAll(".input_date");
-        const mediaQuery = window.matchMedia("(max-width: 767.98px)");
-        console.log(inputDateElements);
-        function inputTypeChangeMax(mediaQuery) {
-            if (inputDateElements.length) inputDateElements.forEach((inputElement => {
-                inputElement.setAttribute("type", "date");
-                inputElement.previousElementSibling.placeholder = "12.05.2025";
-                inputElement.addEventListener("focus", (function() {
-                    inputElement.previousElementSibling.placeholder = "";
-                    inputElement.addEventListener("blur", (function() {
-                        inputElement.previousElementSibling.placeholder = "12.05.2025";
-                    }));
-                }));
-            }));
-        }
-        if (mediaQuery.matches) inputTypeChangeMax(mediaQuery);
         window["FLS"] = true;
         isWebp();
         addTouchClass();
