@@ -6263,6 +6263,20 @@
                 scrollDirection = scrollTop <= 0 ? 0 : scrollTop;
             }));
         }
+        function bgParallax() {
+            addWindowScrollEvent = true;
+            const bgItems = document.querySelectorAll("[data-bg]");
+            if (bgItems.length) document.addEventListener("windowScroll", (function(e) {
+                bgItems.forEach((bgItem => {
+                    let bgItemPosition = bgItem.getBoundingClientRect().top + scrollY;
+                    let bgItemHeight = bgItem.offsetHeight;
+                    let bgItemBg = bgItem.querySelector(".bg-item");
+                    let bgItemScrollPrc = Math.abs((bgItem.getBoundingClientRect().top - window.innerHeight) / (bgItemHeight + window.innerHeight) * 100);
+                    let bgItemPositionValue = bgItemHeight / 100 * 30 / 100 * bgItemScrollPrc;
+                    if (scrollY > bgItemPosition - window.innerHeight && scrollY < bgItemPosition + bgItemHeight) bgItemBg.style.cssText = `transform: translate3D(0,${bgItemPositionValue}px,0);`;
+                }));
+            }));
+        }
         setTimeout((() => {
             if (addWindowScrollEvent) {
                 let windowScroll = new Event("windowScroll");
@@ -6355,6 +6369,12 @@
         }
         const da = new DynamicAdapt("max");
         da.init();
+        window.addEventListener("load", (function(e) {
+            const bg = document.querySelectorAll("[data-bg]");
+            if (bg.length) bg.forEach((bgItem => {
+                bgItem.insertAdjacentHTML("beforeend", `<div class="bg-item"></div>`);
+            }));
+        }));
         window["FLS"] = true;
         isWebp();
         addTouchClass();
@@ -6366,5 +6386,6 @@
         formSubmit();
         pageNavigation();
         headerScroll();
+        bgParallax();
     })();
 })();
