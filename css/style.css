@@ -843,6 +843,11 @@ body::after {
   -o-object-fit: contain;
   object-fit: contain
 }
+.video-module__item {
+  transition: all .3s ease 0s;
+  -webkit-filter: grayscale(1);
+  filter: grayscale(1)
+}
 [data-fullscreen] {
   min-height: 100vh
 }
@@ -1562,7 +1567,37 @@ body::after {
 }
 .video-module {
   position: relative;
-  padding-bottom: 39.7395833333%
+  padding-bottom: 39.7395833333%;
+  cursor: pointer
+}
+.video-module::after,
+.video-module::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  z-index: 2
+}
+.video-module::after {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 12px 0 12px 24px;
+  border-color: transparent transparent transparent #fff
+}
+.video-module::before {
+  border: 1px solid #dcca87;
+  border-radius: 50%
+}
+.video-module._active::after,
+.video-module._active::before {
+  display: none
+}
+.video-module._active .video-module__item {
+  -webkit-filter: grayscale(0);
+  filter: grayscale(0)
 }
 .video-module__item {
   -o-object-fit: cover;
@@ -1916,6 +1951,12 @@ body::after {
   .chef__content {
     row-gap: 4rem
   }
+  .video-module::before {
+    width: 7.5rem
+  }
+  .video-module::before {
+    height: 7.5rem
+  }
 }
 @media (max-width:62em) {
   .about-section__container {
@@ -2021,6 +2062,12 @@ body::after {
   }
   .chef__content {
     row-gap: 1.25rem
+  }
+  .video-module::before {
+    width: 5rem
+  }
+  .video-module::before {
+    height: 5rem
   }
 }
 @media (max-width:90.3125em) {
@@ -2705,6 +2752,26 @@ body::after {
   @supports not (row-gap:clamp(1.25rem ,0.3787128713rem + 4.3564356436vw ,4rem)) {
     .chef__content {
       row-gap: calc(1.25rem + 2.75*(100vw - 20rem)/ 63.125)
+    }
+  }
+  @supports (width:clamp(5rem ,4.2079207921rem + 3.9603960396vw ,7.5rem)) {
+    .video-module::before {
+      width: clamp(5rem ,4.2079207921rem + 3.9603960396vw ,7.5rem)
+    }
+  }
+  @supports not (width:clamp(5rem ,4.2079207921rem + 3.9603960396vw ,7.5rem)) {
+    .video-module::before {
+      width: calc(5rem + 2.5*(100vw - 20rem)/ 63.125)
+    }
+  }
+  @supports (height:clamp(5rem ,4.2079207921rem + 3.9603960396vw ,7.5rem)) {
+    .video-module::before {
+      height: clamp(5rem ,4.2079207921rem + 3.9603960396vw ,7.5rem)
+    }
+  }
+  @supports not (height:clamp(5rem ,4.2079207921rem + 3.9603960396vw ,7.5rem)) {
+    .video-module::before {
+      height: calc(5rem + 2.5*(100vw - 20rem)/ 63.125)
     }
   }
 }
