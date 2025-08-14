@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20250814100459">
+	<link rel="stylesheet" href="css/style.min.css?_v=20250814163314">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,42 +16,41 @@
 	<div class="wrapper">
 		<header data-scroll="200" data-scroll-show class="header">
 			<div class="header__container header__container_wide">
-				<div class="header__column header__column_logo">
-					<a class="header__logo" href="index.html">Gerícht</a>
+				<a class="header__logo" href="index.html">Gerícht</a>
+				<div class="header__menu menu">
+					<nav class="menu__body">
+						<ul class="menu__list">
+							<li class="menu__item">
+								<a class="menu__link" href="#">Home</a>
+							</li>
+							<li class="menu__item">
+								<a class="menu__link" href="#">Pages</a>
+							</li>
+							<li class="menu__item">
+								<a class="menu__link" href="#">Contact Us</a>
+							</li>
+							<li class="menu__item">
+								<a class="menu__link" href="#">Blog</a>
+							</li>
+							<li class="menu__item">
+								<a class="menu__link" href="#">Landing</a>
+							</li>
+						</ul>
+					</nav>
 				</div>
-				<div class="header__column header__column_wide">
-					<div class="header__menu menu">
-						<nav class="menu__body">
-							<ul class="menu__list">
-								<li class="menu__item">
-									<a class="menu__link" href="#">Home</a>
-								</li>
-								<li class="menu__item">
-									<a class="menu__link" href="#">Pages</a>
-								</li>
-								<li class="menu__item">
-									<a class="menu__link" href="#">Contact Us</a>
-								</li>
-								<li class="menu__item">
-									<a class="menu__link" href="#">Blog</a>
-								</li>
-								<li class="menu__item">
-									<a class="menu__link" href="#">Landing</a>
-								</li>
-							</ul>
-						</nav>
-					</div>
-				</div>
-				<div data-da=".menu__body, 479.98" class="header__column header__column_auth">
-					<ul class="header__auth auth-header">
-						<li class="auth-header__item">
-							<a class="auth-header__link" href="#">Log In / Registration</a>
-						</li>
-						<li class="auth-header__item">
-							<a class="auth-header__link" href="#">Book Table</a>
-						</li>
-					</ul>
-				</div>
+				<!-- <div
+      data-da=".menu__body, 479.98"
+      class="header__column header__column_auth"
+    > -->
+				<ul data-da=".menu__body, 479.98" class="header__auth auth-header">
+					<li class="auth-header__item">
+						<a class="auth-header__link" href="#">Log In / Registration</a>
+					</li>
+					<li class="auth-header__item">
+						<a class="auth-header__link" href="#">Book Table</a>
+					</li>
+				</ul>
+
 				<button type="button" class="menu__icon icon-menu">
 					<span></span>
 				</button>
@@ -514,6 +513,14 @@
 					</div>
 				</div>
 			</section>
+			<section class="mainpage__customers customers">
+				<div class="customers__container">
+					<div class="customers__header block-header block-header_left">
+						<div class="block-header__sub-title sub-title">Testimony</div>
+						<h2 class="block-header__title title">Happy Customers</h2>
+					</div>
+				</div>
+			</section>
 			<div class="mainpage__video video">
 				<div data-watch="video" class="video-module">
 					<video id="video-module" class="video-module__item" data-src="files/preview.mp4" data-full="files/preview.mp4" muted loop></video>
@@ -651,7 +658,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20250814100459"></script>
+	<script src="js/app.min.js?_v=20250814163314"></script>
 </body>
 
 </html>
