@@ -983,6 +983,7 @@ body::after {
   color: #dcca87
 }
 .scroll {
+  min-width: 3.84375rem;
   position: absolute;
   bottom: 0;
   right: .9375rem;
@@ -1183,7 +1184,14 @@ body::after {
   font-size: 1.25rem;
   transition: color .3s ease 0s
 }
+._watcher-view .main-slider__top {
+  opacity: 0;
+  visibility: hidden;
+  transition: all .3s ease 0s
+}
 .main-slider {
+  position: relative;
+  z-index: 3;
   display: flex
 }
 .main-slider__container_wide {
@@ -1191,6 +1199,11 @@ body::after {
   flex: 1 1 auto;
   min-width: 0;
   position: relative
+}
+.main-slider__top {
+  transition: all .3s ease 0s;
+  position: fixed;
+  z-index: 20
 }
 .body-main-slider {
   max-width: 81.25rem;
@@ -2740,6 +2753,9 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .main-slider {
     padding-bottom: 4.375rem
   }
+  .main-slider__top {
+    bottom: 4.375rem
+  }
   .about-section {
     padding-top: 8rem
   }
@@ -2954,6 +2970,9 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .main-slider {
     padding-bottom: 1.875rem
   }
+  .main-slider__top {
+    bottom: .9375rem
+  }
   .about-section {
     padding-top: 2.5rem
   }
@@ -3071,6 +3090,9 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   }
   .main-slider__scroll::before {
     display: none
+  }
+  .main-slider__top {
+    min-width: auto
   }
   .body-main-slider {
     row-gap: .9375rem
@@ -3748,6 +3770,16 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   @supports not (padding-bottom:clamp(1.875rem ,1.0829207921rem + 3.9603960396vw ,4.375rem)) {
     .main-slider {
       padding-bottom: calc(1.875rem + 2.5*(100vw - 20rem)/ 63.125)
+    }
+  }
+  @supports (bottom:clamp(0.9375rem ,-0.1516089109rem + 5.4455445545vw ,4.375rem)) {
+    .main-slider__top {
+      bottom: clamp(.9375rem ,-.1516089109rem + 5.4455445545vw ,4.375rem)
+    }
+  }
+  @supports not (bottom:clamp(0.9375rem ,-0.1516089109rem + 5.4455445545vw ,4.375rem)) {
+    .main-slider__top {
+      bottom: calc(.9375rem + 3.4375*(100vw - 20rem)/ 63.125)
     }
   }
   @supports (padding-top:clamp(2.5rem ,0.7574257426rem + 8.7128712871vw ,8rem)) {

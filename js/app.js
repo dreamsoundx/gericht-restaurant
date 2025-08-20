@@ -9167,6 +9167,21 @@ PERFORMANCE OF THIS SOFTWARE.
                 }
             }));
         }
+        function scrollTopElementPosition() {
+            const scrollTop = document.querySelector(".main-slider__top");
+            const scrollContainer = document.querySelector(".main-slider__container_wide");
+            const diff = (window.innerWidth - scrollContainer.offsetWidth) / 2;
+            if (diff > 0) scrollTop.style.right = diff + 15 + "px"; else scrollTop.style.right = 15;
+        }
+        window.addEventListener("resize", scrollTopElementPosition);
+        scrollTopElementPosition();
+        document.addEventListener("watcherCallback", (function(e) {
+            const entry = e.detail.entry;
+            console.log(entry);
+            const targetElement = entry.target;
+            console.log(targetElement);
+            if (targetElement.dataset.watch === "scroll") ;
+        }));
         window["FLS"] = true;
         isWebp();
         addTouchClass();
