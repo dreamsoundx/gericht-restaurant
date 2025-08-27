@@ -7299,6 +7299,12 @@
                 }));
             }));
         }
+        window.addEventListener("load", (function(e) {
+            const bg = document.querySelectorAll("[data-bg]");
+            if (bg.length) bg.forEach((bgItem => {
+                bgItem.insertAdjacentHTML("beforeend", `<div class="bg-item"></div>`);
+            }));
+        }));
         setTimeout((() => {
             if (addWindowScrollEvent) {
                 let windowScroll = new Event("windowScroll");
@@ -9141,12 +9147,6 @@ PERFORMANCE OF THIS SOFTWARE.
         }
         const da = new DynamicAdapt("max");
         da.init();
-        window.addEventListener("load", (function(e) {
-            const bg = document.querySelectorAll("[data-bg]");
-            if (bg.length) bg.forEach((bgItem => {
-                bgItem.insertAdjacentHTML("beforeend", `<div class="bg-item"></div>`);
-            }));
-        }));
         if (document.querySelector(".video-module")) {
             document.addEventListener("watcherCallback", (function(e) {
                 const entry = e.detail.entry;
